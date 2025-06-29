@@ -1,0 +1,1248 @@
+{
+	"schemaVersion": "2.0",
+	"id": 0,
+	"name": "XERNERX",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 1,
+			"name": "client/BaseClient",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 74,
+					"name": "default",
+					"variant": "declaration",
+					"kind": 128,
+					"flags": {},
+					"comment": {
+						"summary": [],
+						"blockTags": [
+							{
+								"tag": "@format",
+								"content": []
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 75,
+							"name": "constructor",
+							"variant": "declaration",
+							"kind": 512,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "client/BaseClient.ts",
+									"line": 6,
+									"character": 1
+								}
+							],
+							"signatures": [
+								{
+									"id": 76,
+									"name": "default",
+									"variant": "signature",
+									"kind": 16384,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "client/BaseClient.ts",
+											"line": 6,
+											"character": 1
+										}
+									],
+									"parameters": [
+										{
+											"id": 77,
+											"name": "token",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"target": 74,
+										"name": "BaseClient",
+										"package": "xernerx-stats",
+										"qualifiedName": "default"
+									}
+								}
+							]
+						},
+						{
+							"id": 78,
+							"name": "token",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isPublic": true,
+								"isReadonly": true
+							},
+							"sources": [
+								{
+									"fileName": "client/BaseClient.ts",
+									"line": 4,
+									"character": 25
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"children": [75]
+						},
+						{
+							"title": "Properties",
+							"children": [78]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "client/BaseClient.ts",
+							"line": 3,
+							"character": 21
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"target": 3,
+							"name": "XernerxShardStats"
+						},
+						{
+							"type": "reference",
+							"target": 34,
+							"name": "XernerxStats"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"children": [74]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "client/BaseClient.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "client/XernerxShardStats",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 3,
+					"name": "XernerxShardStats",
+					"variant": "declaration",
+					"kind": 128,
+					"flags": {},
+					"comment": {
+						"summary": [],
+						"blockTags": [
+							{
+								"tag": "@format",
+								"content": []
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 4,
+							"name": "constructor",
+							"variant": "declaration",
+							"kind": 512,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "client/XernerxShardStats.ts",
+									"line": 10,
+									"character": 1
+								}
+							],
+							"signatures": [
+								{
+									"id": 5,
+									"name": "XernerxShardStats",
+									"variant": "signature",
+									"kind": 16384,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "client/XernerxShardStats.ts",
+											"line": 10,
+											"character": 1
+										}
+									],
+									"parameters": [
+										{
+											"id": 6,
+											"name": "manager",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"target": {
+													"packageName": "discord.js",
+													"packagePath": "typings/index.d.mts",
+													"qualifiedName": "ShardingManager"
+												},
+												"name": "ShardingManager",
+												"package": "discord.js"
+											}
+										},
+										{
+											"id": 7,
+											"name": "settings",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 8,
+													"name": "__type",
+													"variant": "declaration",
+													"kind": 65536,
+													"flags": {},
+													"children": [
+														{
+															"id": 10,
+															"name": "interval",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "client/XernerxShardStats.ts",
+																	"line": 10,
+																	"character": 66
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "number"
+															}
+														},
+														{
+															"id": 9,
+															"name": "token",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "client/XernerxShardStats.ts",
+																	"line": 10,
+																	"character": 51
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"groups": [
+														{
+															"title": "Properties",
+															"children": [10, 9]
+														}
+													],
+													"sources": [
+														{
+															"fileName": "client/XernerxShardStats.ts",
+															"line": 10,
+															"character": 49
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"target": 3,
+										"name": "XernerxShardStats",
+										"package": "xernerx-stats"
+									},
+									"overwrites": {
+										"type": "reference",
+										"target": 76,
+										"name": "default.constructor"
+									}
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"target": 75,
+								"name": "default.constructor"
+							}
+						},
+						{
+							"id": 11,
+							"name": "readyAt",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isPublic": true
+							},
+							"sources": [
+								{
+									"fileName": "client/XernerxShardStats.ts",
+									"line": 8,
+									"character": 16
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"packageName": "typescript",
+									"packagePath": "lib/lib.es5.d.ts",
+									"qualifiedName": "Date"
+								},
+								"name": "Date",
+								"package": "typescript"
+							}
+						},
+						{
+							"id": 32,
+							"name": "token",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isPublic": true,
+								"isReadonly": true,
+								"isInherited": true
+							},
+							"sources": [
+								{
+									"fileName": "client/BaseClient.ts",
+									"line": 4,
+									"character": 25
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"target": 78,
+								"name": "default.token"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"children": [4]
+						},
+						{
+							"title": "Properties",
+							"children": [11, 32]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "client/XernerxShardStats.ts",
+							"line": 7,
+							"character": 13
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"target": 74,
+							"name": "default",
+							"package": "xernerx-stats"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"children": [3]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "client/XernerxShardStats.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 33,
+			"name": "client/XernerxStats",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 34,
+					"name": "XernerxStats",
+					"variant": "declaration",
+					"kind": 128,
+					"flags": {},
+					"comment": {
+						"summary": [],
+						"blockTags": [
+							{
+								"tag": "@format",
+								"content": []
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 35,
+							"name": "constructor",
+							"variant": "declaration",
+							"kind": 512,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "client/XernerxStats.ts",
+									"line": 10,
+									"character": 1
+								}
+							],
+							"signatures": [
+								{
+									"id": 36,
+									"name": "XernerxStats",
+									"variant": "signature",
+									"kind": 16384,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "client/XernerxStats.ts",
+											"line": 10,
+											"character": 1
+										}
+									],
+									"parameters": [
+										{
+											"id": 37,
+											"name": "client",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"target": {
+													"packageName": "discord.js",
+													"packagePath": "typings/index.d.mts",
+													"qualifiedName": "Client"
+												},
+												"name": "Client",
+												"package": "discord.js"
+											}
+										},
+										{
+											"id": 38,
+											"name": "settings",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 39,
+													"name": "__type",
+													"variant": "declaration",
+													"kind": 65536,
+													"flags": {},
+													"children": [
+														{
+															"id": 41,
+															"name": "interval",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "client/XernerxStats.ts",
+																	"line": 10,
+																	"character": 56
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "number"
+															}
+														},
+														{
+															"id": 40,
+															"name": "token",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "client/XernerxStats.ts",
+																	"line": 10,
+																	"character": 41
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"groups": [
+														{
+															"title": "Properties",
+															"children": [41, 40]
+														}
+													],
+													"sources": [
+														{
+															"fileName": "client/XernerxStats.ts",
+															"line": 10,
+															"character": 39
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"target": 34,
+										"name": "XernerxStats",
+										"package": "xernerx-stats"
+									},
+									"overwrites": {
+										"type": "reference",
+										"target": 76,
+										"name": "default.constructor"
+									}
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"target": 75,
+								"name": "default.constructor"
+							}
+						},
+						{
+							"id": 55,
+							"name": "token",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isPublic": true,
+								"isReadonly": true,
+								"isInherited": true
+							},
+							"sources": [
+								{
+									"fileName": "client/BaseClient.ts",
+									"line": 4,
+									"character": 25
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"target": 78,
+								"name": "default.token"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"children": [35]
+						},
+						{
+							"title": "Properties",
+							"children": [55]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "client/XernerxStats.ts",
+							"line": 7,
+							"character": 13
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"target": 74,
+							"name": "default",
+							"package": "xernerx-stats"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"children": [34]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "client/XernerxStats.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 56,
+			"name": "functions/post",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 57,
+					"name": "post",
+					"variant": "declaration",
+					"kind": 64,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "functions/post.ts",
+							"line": 3,
+							"character": 22
+						}
+					],
+					"signatures": [
+						{
+							"id": 58,
+							"name": "post",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"comment": {
+								"summary": [],
+								"blockTags": [
+									{
+										"tag": "@format",
+										"content": []
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "functions/post.ts",
+									"line": 3,
+									"character": 22
+								}
+							],
+							"parameters": [
+								{
+									"id": 59,
+									"name": "data",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 60,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 63,
+													"name": "guildCount",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "functions/post.ts",
+															"line": 7,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													}
+												},
+												{
+													"id": 61,
+													"name": "id",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "functions/post.ts",
+															"line": 5,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												},
+												{
+													"id": 62,
+													"name": "onlineSince",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "functions/post.ts",
+															"line": 6,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													}
+												},
+												{
+													"id": 65,
+													"name": "shardCount",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "functions/post.ts",
+															"line": 9,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "number"
+															},
+															{
+																"type": "literal",
+																"value": "auto"
+															}
+														]
+													}
+												},
+												{
+													"id": 67,
+													"name": "shards",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "functions/post.ts",
+															"line": 11,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "tuple"
+															},
+															{
+																"type": "tuple",
+																"elements": [
+																	{
+																		"type": "reflection",
+																		"declaration": {
+																			"id": 68,
+																			"name": "__type",
+																			"variant": "declaration",
+																			"kind": 65536,
+																			"flags": {},
+																			"children": [
+																				{
+																					"id": 72,
+																					"name": "guildCount",
+																					"variant": "declaration",
+																					"kind": 1024,
+																					"flags": {},
+																					"sources": [
+																						{
+																							"fileName": "functions/post.ts",
+																							"line": 11,
+																							"character": 75
+																						}
+																					],
+																					"type": {
+																						"type": "intrinsic",
+																						"name": "number"
+																					}
+																				},
+																				{
+																					"id": 70,
+																					"name": "onlineSince",
+																					"variant": "declaration",
+																					"kind": 1024,
+																					"flags": {},
+																					"sources": [
+																						{
+																							"fileName": "functions/post.ts",
+																							"line": 11,
+																							"character": 35
+																						}
+																					],
+																					"type": {
+																						"type": "intrinsic",
+																						"name": "number"
+																					}
+																				},
+																				{
+																					"id": 69,
+																					"name": "shardId",
+																					"variant": "declaration",
+																					"kind": 1024,
+																					"flags": {},
+																					"sources": [
+																						{
+																							"fileName": "functions/post.ts",
+																							"line": 11,
+																							"character": 18
+																						}
+																					],
+																					"type": {
+																						"type": "intrinsic",
+																						"name": "string"
+																					}
+																				},
+																				{
+																					"id": 71,
+																					"name": "userCount",
+																					"variant": "declaration",
+																					"kind": 1024,
+																					"flags": {},
+																					"sources": [
+																						{
+																							"fileName": "functions/post.ts",
+																							"line": 11,
+																							"character": 56
+																						}
+																					],
+																					"type": {
+																						"type": "intrinsic",
+																						"name": "number"
+																					}
+																				}
+																			],
+																			"groups": [
+																				{
+																					"title": "Properties",
+																					"children": [72, 70, 69, 71]
+																				}
+																			],
+																			"sources": [
+																				{
+																					"fileName": "functions/post.ts",
+																					"line": 11,
+																					"character": 16
+																				}
+																			]
+																		}
+																	}
+																]
+															}
+														]
+													}
+												},
+												{
+													"id": 64,
+													"name": "userCount",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "functions/post.ts",
+															"line": 8,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													}
+												},
+												{
+													"id": 66,
+													"name": "voteCount",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "functions/post.ts",
+															"line": 10,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [63, 61, 62, 65, 67, 64, 66]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "functions/post.ts",
+													"line": 4,
+													"character": 7
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 73,
+									"name": "token",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"packageName": "typescript",
+									"packagePath": "lib/lib.es5.d.ts",
+									"qualifiedName": "Promise"
+								},
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "unknown"
+									}
+								],
+								"name": "Promise",
+								"package": "typescript"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [57]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "functions/post.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Modules",
+			"children": [1, 2, 33, 56]
+		}
+	],
+	"packageName": "xernerx-stats",
+	"packageVersion": "0.0.1",
+	"readme": [
+		{
+			"kind": "text",
+			"text": "<!-- @format -->\n\n\"# xernerx-stats\""
+		}
+	],
+	"symbolIdMap": {
+		"1": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/BaseClient.ts",
+			"qualifiedName": ""
+		},
+		"2": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxShardStats.ts",
+			"qualifiedName": ""
+		},
+		"3": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxShardStats.ts",
+			"qualifiedName": "XernerxShardStats"
+		},
+		"4": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxShardStats.ts",
+			"qualifiedName": "XernerxShardStats.__constructor"
+		},
+		"5": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxShardStats.ts",
+			"qualifiedName": "XernerxShardStats"
+		},
+		"6": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxShardStats.ts",
+			"qualifiedName": "manager"
+		},
+		"7": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxShardStats.ts",
+			"qualifiedName": "settings"
+		},
+		"8": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxShardStats.ts",
+			"qualifiedName": "__type"
+		},
+		"9": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxShardStats.ts",
+			"qualifiedName": "__type.token"
+		},
+		"10": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxShardStats.ts",
+			"qualifiedName": "__type.interval"
+		},
+		"11": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxShardStats.ts",
+			"qualifiedName": "XernerxShardStats.readyAt"
+		},
+		"32": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/BaseClient.ts",
+			"qualifiedName": "default.token"
+		},
+		"33": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxStats.ts",
+			"qualifiedName": ""
+		},
+		"34": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxStats.ts",
+			"qualifiedName": "XernerxStats"
+		},
+		"35": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxStats.ts",
+			"qualifiedName": "XernerxStats.__constructor"
+		},
+		"36": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxStats.ts",
+			"qualifiedName": "XernerxStats"
+		},
+		"37": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxStats.ts",
+			"qualifiedName": "client"
+		},
+		"38": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxStats.ts",
+			"qualifiedName": "settings"
+		},
+		"39": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxStats.ts",
+			"qualifiedName": "__type"
+		},
+		"40": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxStats.ts",
+			"qualifiedName": "__type.token"
+		},
+		"41": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/XernerxStats.ts",
+			"qualifiedName": "__type.interval"
+		},
+		"55": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/BaseClient.ts",
+			"qualifiedName": "default.token"
+		},
+		"56": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": ""
+		},
+		"57": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "post"
+		},
+		"58": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "post"
+		},
+		"59": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "data"
+		},
+		"60": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type"
+		},
+		"61": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type.id"
+		},
+		"62": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type.onlineSince"
+		},
+		"63": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type.guildCount"
+		},
+		"64": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type.userCount"
+		},
+		"65": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type.shardCount"
+		},
+		"66": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type.voteCount"
+		},
+		"67": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type.shards"
+		},
+		"68": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type"
+		},
+		"69": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type.shardId"
+		},
+		"70": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type.onlineSince"
+		},
+		"71": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type.userCount"
+		},
+		"72": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "__type.guildCount"
+		},
+		"73": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/functions/post.ts",
+			"qualifiedName": "token"
+		},
+		"74": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/BaseClient.ts",
+			"qualifiedName": "default"
+		},
+		"75": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/BaseClient.ts",
+			"qualifiedName": "default.__constructor"
+		},
+		"76": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/BaseClient.ts",
+			"qualifiedName": "default"
+		},
+		"77": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/BaseClient.ts",
+			"qualifiedName": "token"
+		},
+		"78": {
+			"packageName": "xernerx-stats",
+			"packagePath": "src/client/BaseClient.ts",
+			"qualifiedName": "default.token"
+		}
+	},
+	"files": {
+		"entries": {
+			"1": "src/client/BaseClient.ts",
+			"2": "src/client/XernerxShardStats.ts",
+			"3": "src/client/XernerxStats.ts",
+			"4": "src/functions/post.ts",
+			"5": "README.md",
+			"6": ""
+		},
+		"reflections": {
+			"1": 1,
+			"2": 2,
+			"3": 33,
+			"4": 56,
+			"5": 0,
+			"6": 0
+		}
+	}
+}

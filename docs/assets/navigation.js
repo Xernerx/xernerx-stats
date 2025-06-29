@@ -1,0 +1,4 @@
+/** @format */
+
+window.navigationData =
+	'eJyVkssKwjAQRf9l1sViEZEs9RO6EYqUkExJMU1LMoWC9N+lqH1X4/renDkXkjyAsCFgIHSOhiAAoXItLRpgSR+eucPLp1BxUsCgKGWt0YWvh+lQ2SkqNARwz40EFq0TJWa81iOc0Ny5Vdy7OsXuo1N7a4Oed0Vr0Dax4lbGxMltii6aXr5f+DPzJf/Hxa0pXiv+HuDlPtHeMh47Z7URlJfGhVXpVj5Jn6dd7iU8BQ0HZqgl73jo5J6JTwIt';
