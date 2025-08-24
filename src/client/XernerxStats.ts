@@ -1,41 +1,40 @@
 /** @format */
 
-import { Client } from 'discord.js';
+import { Client, XernerxClient, XernerxShardClient } from 'xernerx';
 import BaseClient from './BaseClient.js';
 import { post } from '../functions/post.js';
 
 export class XernerxStats extends BaseClient {
-	declare private readyAt: Date;
+	declare public readonly settings;
 
-	constructor(client: Client, settings: { token: string; interval: number }) {
-		if (typeof settings.token !== 'string') throw new Error(`Token must be of type string, received ${typeof settings.token}.`);
+	constructor(client: Client | XernerxShardClient | XernerxClient, settings: { interval?: number; token: string } = { interval: 30 * 60000, token: '' }) {
+		super(settings.token);
 
-		super(settings.token as string);
+		if ((client as XernerxClient).sharded) throw new Error(`Cannot post stats from a sharded client, move this to the main client.`);
 
-		client.on('ready', (client) => {
-			this.readyAt = new Date();
+		this.settings = settings;
 
-			if (client.shard) throw new Error('XernerxStats cannot be used with sharded Discord clients.');
-
-			post(this.getStats(client), this.token);
-
-			setInterval(() => {
-				post(this.getStats(client), this.token);
-			}, settings.interval || 60000);
-		});
+		this.#update(client);
 	}
-	private getStats(client: Client) {
-		const guilds = client.guilds.cache;
 
-		return {
-			id: client.user?.id as string,
-			onlineSince: Number(this.readyAt),
-			timestamp: Number(new Date()),
-			guildCount: guilds.size,
-			userCount: guilds.map((guild) => guild.memberCount).reduce((a, b) => a + b),
-			shardCount: !client.shard ? 0 : 0,
-			voteCount: 0,
-			shards: [] as [],
-		};
+	async #update(client: XernerxShardClient | XernerxClient | any) {
+		const collector = setInterval(async () => {
+			if (!client.stats.shards) client.stats.shards = [];
+
+			if (client.stats.shards.length == (client as XernerxShardClient).totalClusters || (client as XernerxShardClient).totalClusters == undefined) {
+				const id = (client as XernerxClient)?.user?.id || (await client.fetchClientValues('user.id'))[0];
+
+				await post({ id, ...client.stats }, this.token).catch(console.error);
+
+				setInterval(
+					async () => {
+						await post({ id, ...client.stats }, this.token).catch(console.error);
+					},
+					this.settings.interval || 30 * 60000
+				);
+
+				clearInterval(collector);
+			}
+		}, 5000);
 	}
 }
