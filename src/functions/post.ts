@@ -12,7 +12,7 @@ export async function post(
 	},
 	token: string
 ) {
-	const response = fetch('https://api.xernerx.com/api/stats', {
+	const response = fetch('https://app.xernerx.com/stats/bots', {
 		method: 'POST',
 		headers: { Authorization: token },
 		body: JSON.stringify(data),
