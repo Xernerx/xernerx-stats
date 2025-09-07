@@ -35,7 +35,7 @@
 		"tsup": "^8.5.0",
 		"typedoc": "^0.28.11",
 		"typedoc-github-theme": "^0.3.0",
-		"xernerx": "^0.1.120-beta.23"
+		"xernerx": "beta"
 	},
 	"engines": {
 		"node": ">=22.00.00"
