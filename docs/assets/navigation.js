@@ -1,4 +1,0 @@
-/** @format */
-
-window.navigationData =
-	'eJyNkEEKgzAQRe8ya6lUSilZtkfopiBFQjJiaIzijCAU717EVqON4Pr/ef8x6RsYOwYByhp0DBGowljdoAORTuFVEt5+hVpyAQLKSrcWKR4Ps7lyKLi0EMHLOA0iCRM15rK1Hk5ZSRTEfatL7DG59M8+mngPbBw23Z0l06ajX9plGaauVBfU7YnR2HfOW6fYVI7iuqLAZ6c8G/JdwkvQPLBC/fPOp0HuA3TTuRA=';
