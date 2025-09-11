@@ -1,5 +1,6 @@
-# .github/workflows/publish-docs.yml
-name: Build and Push Typedoc
+# @format
+
+name: Publish Packages
 
 on:
   push:
@@ -8,49 +9,58 @@ on:
       - beta
 
 jobs:
-  build-and-push-docs:
+  build-and-publish:
     runs-on: ubuntu-latest
+
     steps:
-      # Checkout the package repo
-      - name: Checkout package
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      # Install dependencies
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+
       - name: Install dependencies
         run: npm install
 
-      # Build Typedoc using typedoc.json
-      - name: Generate Typedoc
-        run: npx typedoc
+      - name: Build with tsup
+        run: npx tsup
 
-      # Get package name from package.json
-      - name: Get package name
+      - name: Check exports with arethetypeswrong
+        run: npx @arethetypeswrong/cli --pack
+
+      - name: Run Prettier
+        run: npx prettier --write .
+
+      - name: Get package info
         id: pkg
         run: |
-          echo "PACKAGE_NAME=$(jq -r .name package.json)" >> $GITHUB_ENV
+          echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_OUTPUT
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
-      # Checkout central docs repo (main branch) into a separate folder
-      - name: Checkout docs repo
-        uses: actions/checkout@v4
-        with:
-          repository: xernerx/docs
-          token: ${{ secrets.XERNERX_ACCESS_TOKEN }}
-          ref: main
-          path: central-docs   # <-- separate folder for central repo
-
-      # Copy Typedoc output from package repo into central docs repo
-      - name: Sync docs
+      - name: Push docs to docs repo
         run: |
-          rm -rf central-docs/docs/${PACKAGE_NAME}
-          mkdir -p central-docs/docs/${PACKAGE_NAME}
-          cp -r ./docs/* central-docs/docs/${PACKAGE_NAME}/
-
-      # Commit & push changes
-      - name: Commit and push
-        run: |
-          cd central-docs
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          mkdir -p typedoc_out
+          npx typedoc --out typedoc_out src
+          git clone https://github.com/Xernerx/docs.git docs-repo
+          cd docs-repo
+          mkdir -p packages
+          mkdir -p packages/${{ steps.pkg.outputs.name }}/${{ steps.pkg.outputs.version }}
+          cp -r ../typedoc_out/* packages/${{ steps.pkg.outputs.name }}/${{ steps.pkg.outputs.version }}/
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Update ${PACKAGE_NAME} docs from $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
-          git push origin main
+          git commit -m "docs: update for ${{ steps.pkg.outputs.name }}@${{ steps.pkg.outputs.version }}" || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.XERNERX_ACCESS_TOKEN }}@github.com/Xernerx/docs.git
+
+      - name: Publish to npm
+        run: |
+          if [ "${GITHUB_REF##*/}" = "beta" ]; then
+            npm publish --tag beta --access public
+          else
+            npm publish --access public
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
