@@ -46,7 +46,7 @@
 	},
 	"packageManager": "npm@11.11.0",
 	"dependencies": {
-		"@xernerx/terminal": "^1.0.7"
+		"@xernerx/terminal": "^1.0.12"
 	},
 	"engines": {
 		"node": ">=24"
