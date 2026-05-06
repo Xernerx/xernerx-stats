@@ -1,6 +1,6 @@
 {
 	"name": "@xernerx/stats",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"type": "module",
 	"main": "./dist/main.cjs",
 	"module": "./dist/main.js",
