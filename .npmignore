@@ -15,9 +15,8 @@ jest.config.ts
 test
 pub.config.js
 typedoc.json
-
+.npmrc
 
 # ? TypeScript
 tsconfig.json
 src
-test

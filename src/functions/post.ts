@@ -2,7 +2,7 @@
 
 export async function post(
 	data: {
-		id: string;
+		id?: string;
 		onlineSince: number;
 		guildCount: number;
 		userCount: number;
@@ -12,7 +12,11 @@ export async function post(
 	},
 	token: string
 ) {
-	const response = fetch('https://app.xernerx.com/api/stats/bots', {
+	const id = data.id;
+
+	delete data.id;
+
+	const response = fetch(`https://app.xernerx.com/api/v1/bots/${id}/stats`, {
 		method: 'POST',
 		headers: { Authorization: token },
 		body: JSON.stringify(data),
