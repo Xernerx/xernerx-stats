@@ -18,11 +18,11 @@ export async function post(
 
 	const response = fetch(`https://app.xernerx.com/api/v1/bots/${id}/stats`, {
 		method: 'POST',
-		headers: { Authorization: token },
+		headers: { Authorization: `Bearer ${token}` },
 		body: JSON.stringify(data),
 	})
 		.then((response) => response.json())
-		.catch((error) => console.error('Error:', error));
+		.catch((error) => console.error('Error:', error.message));
 
 	return await response;
 }
