@@ -29,13 +29,13 @@ export class XernerxStats extends BaseClient {
 
 				await post({ id, ...client.stats }, this.token)
 					.then(() => t.log(`Successfully posted stats.`))
-					.catch(console.error);
+					.catch(terminal.error);
 
 				setInterval(
 					async () => {
 						await post({ id, ...client.stats }, this.token)
 							.then(() => t.log(`Successfully posted stats.`))
-							.catch(console.error);
+							.catch(terminal.error);
 					},
 					this.settings.interval || 30 * 60000
 				);
