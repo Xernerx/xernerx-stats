@@ -42,9 +42,6 @@
 		"typedoc-github-theme": "^0.4.0",
 		"@xernerx/framework": "1.0.2"
 	},
-	"engines": {
-		"node": ">=22.00.00"
-	},
 	"packageManager": "npm@11.5.2",
 	"dependencies": {
 		"@xernerx/terminal": "^1.0.7"
