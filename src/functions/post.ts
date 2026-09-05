@@ -16,7 +16,7 @@ export async function post(
 
 	delete data.id;
 
-	const response = fetch(`https://app.xernerx.com/api/v1/bots/${id}/stats`, {
+	const response = fetch(`https://api.xernerx.com/v1/bots/${id}/stats`, {
 		method: 'POST',
 		headers: { Authorization: `Bearer ${token}` },
 		body: JSON.stringify(data),
