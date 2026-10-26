@@ -1,6 +1,6 @@
 /** @format */
 
-import BaseClient, { BaseClientOptions } from './BaseClient.js';
+import { BaseClient, BaseClientOptions } from './BaseClient.js';
 import { post, ShardStats, StatsPayload } from '../functions/post.js';
 
 export interface StatsClientOptions extends BaseClientOptions {

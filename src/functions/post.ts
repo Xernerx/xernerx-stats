@@ -1,5 +1,6 @@
 /** @format */
 
+// Bot shard and telemetry payloads
 export interface ShardStats {
 	shardId: string | number;
 	onlineSince: number | null;

@@ -2,7 +2,7 @@
 
 import { XernerxClient, XernerxShardClient } from '@xernerx/framework';
 
-import BaseClient, { BaseClientOptions } from './BaseClient.js';
+import { BaseClient, BaseClientOptions } from './BaseClient.js';
 import { post } from '../functions/post.js';
 import { terminal } from '@xernerx/terminal';
 
@@ -23,10 +23,10 @@ export class XernerxStats extends BaseClient {
 
 		this.settings = settings;
 
-		this.#update(client);
+		this.update(client);
 	}
 
-	async #update(client: XernerxShardClient | XernerxClient | any) {
+	private async update(client: XernerxShardClient | XernerxClient | any) {
 		const collector = setInterval(async () => {
 			if (!client.stats) return;
 			if (!client.stats.shards) client.stats.shards = [];

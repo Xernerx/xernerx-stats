@@ -3,7 +3,7 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"version": "1.0.11",
+	"version": "1.0.12",
 	"type": "module",
 	"main": "./dist/main.cjs",
 	"module": "./dist/main.js",
@@ -25,8 +25,8 @@
 		}
 	},
 	"scripts": {
-		"commit": "prettier --write . && changeset",
-		"ship": "pnpm run build && changeset version && git add . && git commit -m \"chore: release\" && changeset tag && git push --follow-tags",
+		"commit": "prettier --write . && node -e \"const fs=require('fs'),cp=require('child_process');const has=fs.readdirSync('.changeset').some(f=>f.endsWith('.md')&&f.toLowerCase()!=='readme.md');cp.execSync(!process.stdin.isTTY&&has?'pnpm exec changeset status':'pnpm exec changeset',{stdio:'inherit'})\"",
+		"ship": "changeset version && pnpm run build && git add . && git commit -m \"chore: release\" && changeset tag && git push --follow-tags",
 		"docs": "typedoc",
 		"build": "pnpm i && tsup && attw --pack && pnpm run docs",
 		"dev": "pnpm i && pnpm link && tsup --watch",
@@ -42,15 +42,16 @@
 		"@types/node": "^24",
 		"@xernerx/framework": "1.0.2",
 		"prettier": "^3.8.3",
+		"tslib": "^2.8.1",
 		"tsup": "^8.5.1",
 		"typedoc": "^0.28.20",
-		"typedoc-github-theme": "^0.3.1",
+		"typedoc-github-theme": "^0.4.0",
 		"typedoc-plugin-extras": "^4.0.1",
-		"typedoc-plugin-zod": "^1.4.2",
+		"typedoc-plugin-zod": "^1.4.3",
 		"typescript": "^6.0.3"
 	},
 	"dependencies": {
-		"@xernerx/terminal": "^1.1.11"
+		"@xernerx/terminal": "^1.1.13"
 	},
 	"engines": {
 		"node": ">=24"

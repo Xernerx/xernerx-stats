@@ -1,5 +1,11 @@
 <!-- @format -->
 
+## 1.0.12
+
+### Patch Changes
+
+- Fix TypeDoc build (`tslib` & `CHANGELOG.md` project document), standardize named `BaseClient` export, and align `commit` / `ship` scripts and `.prettierignore`.
+
 ## 1.0.11
 
 ### Patch Changes

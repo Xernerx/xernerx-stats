@@ -1,11 +1,12 @@
 /** @format */
 
+// Base client configuration
 export interface BaseClientOptions {
 	url?: string;
 	dev?: boolean;
 }
 
-export default class BaseClient {
+export class BaseClient {
 	public readonly token: string;
 	public readonly url: string;
 
