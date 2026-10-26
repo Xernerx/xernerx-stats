@@ -1,28 +1,46 @@
 /** @format */
 
-export async function post(
-	data: {
-		id?: string;
-		onlineSince: number;
-		guildCount: number;
-		userCount: number;
-		shardCount: number | 'auto';
-		voteCount: number;
-		shards: [] | [{ shardId: string; onlineSince: number; userCount: number; guildCount: number }];
-	},
-	token: string
-) {
-	const id = data.id;
+export interface ShardStats {
+	shardId: string | number;
+	onlineSince: number | null;
+	userCount: number | null;
+	guildCount: number | null;
+}
 
-	delete data.id;
+export interface StatsPayload {
+	id?: string;
+	onlineSince?: number | null;
+	guildCount?: number | null;
+	serverCount?: number | null;
+	userCount?: number | null;
+	shardCount?: number | 'auto' | null;
+	voteCount?: number | null;
+	shards?: ShardStats[] | [];
+}
 
-	const response = fetch(`https://api.xernerx.com/v1/bots/${id}/stats`, {
+export async function post(data: StatsPayload, token: string, baseUrl = 'https://api.xernerx.com') {
+	const { id, ...payload } = data;
+
+	if (!id) {
+		throw new Error('Bot ID is required to post stats.');
+	}
+
+	const endpoint = `${baseUrl.replace(/\/$/, '')}/v1/bots/${encodeURIComponent(id)}/stats`;
+
+	const response = await fetch(endpoint, {
 		method: 'POST',
-		headers: { Authorization: `Bearer ${token}` },
-		body: JSON.stringify(data),
-	})
-		.then((response) => response.json())
-		.catch((error) => console.error('Error:', error.message));
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${token}`,
+		},
+		body: JSON.stringify(payload),
+	});
 
-	return await response;
+	const body: any = await response.json().catch(() => null);
+
+	if (!response.ok) {
+		throw new Error(body?.error || body?.message || `Failed to post stats (HTTP ${response.status})`);
+	}
+
+	return body;
 }
