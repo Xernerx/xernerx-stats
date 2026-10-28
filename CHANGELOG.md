@@ -1,5 +1,11 @@
 <!-- @format -->
 
+## 1.0.14
+
+### Patch Changes
+
+- Use `@xernerx/extension-builder` from npm and extend `ExtensionBuilder` in `XernerxStats`.
+
 ## 1.0.13
 
 ### Patch Changes

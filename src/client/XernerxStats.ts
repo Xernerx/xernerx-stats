@@ -1,5 +1,6 @@
 /** @format */
 
+import { ExtensionBuilder } from '@xernerx/extension-builder';
 import { XernerxClient, XernerxShardClient } from '@xernerx/framework';
 
 import { BaseClient, BaseClientOptions } from './BaseClient.js';
@@ -19,12 +20,16 @@ export interface XernerxStatsSettings extends BaseClientOptions {
 }
 
 /**
- * Automatic telemetry reporter for `@xernerx/framework` (`XernerxClient` or `XernerxShardClient`).
+ * Automatic telemetry reporter extension for `@xernerx/framework` (`XernerxClient` or `XernerxShardClient`).
  *
  * Waits for all shards/clusters to report ready statistics, posts an initial snapshot to the Xernerx Suite API,
  * and schedules periodic updates at `settings.interval`.
  */
-export class XernerxStats extends BaseClient {
+export class XernerxStats extends ExtensionBuilder<XernerxShardClient | XernerxClient, XernerxStatsSettings> {
+	/** Xernerx API bearer token used for `Authorization` headers. */
+	public readonly token: string;
+	/** Resolved Xernerx API base URL without a trailing slash. */
+	public readonly url: string;
 	/** Resolved settings for telemetry posting and interval scheduling. */
 	public readonly settings: XernerxStatsSettings;
 
@@ -34,13 +39,28 @@ export class XernerxStats extends BaseClient {
 	 * @param settings - API token, posting interval, and optional API base URL settings.
 	 */
 	constructor(client: XernerxShardClient | XernerxClient, settings: XernerxStatsSettings = { interval: 30 * 60000, token: '' }) {
-		super(settings.token, { url: settings.url, dev: settings.dev });
+		super('XernerxStats', settings);
 
-		if ((client as XernerxClient).sharded) throw new Error(`Cannot post stats from a sharded client, move this to the main client.`);
-
+		const base = new BaseClient(settings.token, { url: settings.url, dev: settings.dev });
+		this.token = base.token;
+		this.url = base.url;
 		this.settings = settings;
 
-		this.update(client);
+		if (client) {
+			if ((client as XernerxClient).sharded) throw new Error(`Cannot post stats from a sharded client, move this to the main client.`);
+			this.client = client;
+		}
+	}
+
+	/**
+	 * Initializes automatic telemetry collection and periodic API reporting for the attached client.
+	 * @param client - Standalone `XernerxClient` or primary `XernerxShardClient` manager.
+	 */
+	public override async main(client: XernerxShardClient | XernerxClient = this._client) {
+		if (!client) return;
+		if ((client as XernerxClient).sharded) throw new Error(`Cannot post stats from a sharded client, move this to the main client.`);
+		this._client = client;
+		void this.update(client);
 	}
 
 	private async update(client: XernerxShardClient | XernerxClient | any) {
