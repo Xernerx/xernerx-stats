@@ -1,5 +1,11 @@
 <!-- @format -->
 
+## 1.0.13
+
+### Patch Changes
+
+- Simplify `StatsClient` API methods to direct keywords (`get`, `post`, `update`, `delete`) and update JSDoc comments and `README.md` documentation.
+
 ## 1.0.12
 
 ### Patch Changes

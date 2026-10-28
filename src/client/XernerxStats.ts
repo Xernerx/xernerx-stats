@@ -8,14 +8,31 @@ import { terminal } from '@xernerx/terminal';
 
 const t = terminal.child({ scope: 'XS' });
 
+/**
+ * Configuration settings for the {@link XernerxStats} auto-sync client.
+ */
 export interface XernerxStatsSettings extends BaseClientOptions {
+	/** Interval in milliseconds between automatic telemetry posts (defaults to `1800000` / 30 minutes). */
 	interval?: number;
+	/** Xernerx Suite API bearer token. */
 	token: string;
 }
 
+/**
+ * Automatic telemetry reporter for `@xernerx/framework` (`XernerxClient` or `XernerxShardClient`).
+ *
+ * Waits for all shards/clusters to report ready statistics, posts an initial snapshot to the Xernerx Suite API,
+ * and schedules periodic updates at `settings.interval`.
+ */
 export class XernerxStats extends BaseClient {
+	/** Resolved settings for telemetry posting and interval scheduling. */
 	public readonly settings: XernerxStatsSettings;
 
+	/**
+	 * Attaches automatic telemetry reporting to a `XernerxClient` or `XernerxShardClient`.
+	 * @param client - Standalone `XernerxClient` or primary `XernerxShardClient` manager.
+	 * @param settings - API token, posting interval, and optional API base URL settings.
+	 */
 	constructor(client: XernerxShardClient | XernerxClient, settings: XernerxStatsSettings = { interval: 30 * 60000, token: '' }) {
 		super(settings.token, { url: settings.url, dev: settings.dev });
 
