@@ -1,5 +1,13 @@
 <!-- @format -->
 
+## 1.0.15
+
+### Patch Changes
+
+- <!-- @format -->
+  
+  Update `packageManager` to `pnpm@12.21.0`.
+
 ## 1.0.14
 
 ### Patch Changes
